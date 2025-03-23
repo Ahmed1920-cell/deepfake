@@ -88,6 +88,7 @@ class HomeCubit extends Cubit<HomeState> {
       File video = await DioService(dio: Dio()).downloadVideo(url);
       emit(HomeNext(video));
     } catch (e) {
+      EasyLoading.dismiss();
       emit(HomeError("no Select video"));
     }
   }
